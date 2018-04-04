@@ -3,7 +3,7 @@ RUN rm /etc/apt/preferences.d/no-debian-php
 
 
 #apt-get install -y php-mysql \
-RUN apt-get update \
+RUN apt-get update && \
 apt-get clean
 
 # Section that setups up Apache and Cosign to run as non-root user.
