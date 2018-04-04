@@ -10,6 +10,17 @@ EXPOSE 8443
 
 COPY myapp /var/www/html/
 
+RUN chgrp -R 0 /dev/stdout && \
+    chmod -R g=u /dev/stdout
+
+RUN chgrp -R 0 /dev/stderr && \
+    chmod -R g=u /dev/stderr
+
+RUN chgrp -R 0 /var/log/apache2 && \
+    chmod -R g=u /var/log/apache2
+    
+     
+     
 
 RUN chmod -R g+rw /var/log/apache2 /etc/apache2 \
 	/etc/ssl/certs /etc/ssl/private /etc/apache2/mods-enabled /etc/apache2/sites-enabled \
